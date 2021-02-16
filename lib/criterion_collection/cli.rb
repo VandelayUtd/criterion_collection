@@ -1,7 +1,7 @@
 class CriterionCollection::CLI 
     def call
         puts "\n Welcome to the Criterion Collection Library \n"
-        puts "Here's a curated list of directors"
+        puts "Here's a curated list of some of our favorite directors"
         puts "Each one of them has made a notable contribution to modern day cinema"
         #gets and displays a list of directors
         get_directors
@@ -15,11 +15,10 @@ class CriterionCollection::CLI
     end
 
     def get_directors
-       # CriterionCollection::Director.new("Akira Kurosawa")
-        CriterionCollection::Scraper.scrape
-        #to be scraped instead
+       ## move this to director class
+        # CriterionCollection::Scraper.scrape_directors
         @directors = CriterionCollection::Director.all
-       # ["Akira Kurosawa", "Martin Scorsese", "Mike Leigh", "Wes Anderson", "Terrance Malick" ]
+       
     end
 
     def list_directors
@@ -27,20 +26,25 @@ class CriterionCollection::CLI
         @directors.each {|object| list << object.name}
         unique_list = list.uniq
         unique_list.each {|name| puts "#{name}"}
-        # @directors.each do |director|
-        #     puts "#{director.name}"
-        # end
     end
 
     def get_user_director
         chosen_director = gets.strip
-        display_director_filmography(chosen_director) if @directors.include?(chosen_director)
-            #return director filmography
+        valid_director = valid_input(chosen_director)
+        display_director_movies(valid_director)
     end
 
-    def display_director_filmography(chosen_director)
-        puts "Here are #{chosen_director}'s films"
+    def valid_input(input)
+        @directors.detect{|director| director.name == input}
+    end
 
+
+    def display_director_movies(valid_director)
+        valid_director.get_movies
+        puts "Here are movies directed by #{valid_director.name}"
+        valid_director.movies.each do |object|
+            puts "#{object.name}"
+        end
     end
 
     # def valid_input(input)
