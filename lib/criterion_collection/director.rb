@@ -1,6 +1,6 @@
 class CriterionCollection::Director
 
-    attr_accessor :name, :movie, :description, :special_features, :url, :movies 
+    attr_accessor :name, :movie, :url, :movies 
 
     @@all = [] 
 

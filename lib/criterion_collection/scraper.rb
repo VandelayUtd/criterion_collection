@@ -8,7 +8,6 @@ class CriterionCollection::Scraper
             row.css(".store-row ul.group li").each do |element|
                 name = element.css(".filmWrap a .basicFilm figcaption dd").text.lines[1].strip
                 ## Retrieves the director filmography link
-                #first retrieves corresponding movie link
                 #moves to movie page
                 movie_page = Nokogiri::HTML(open(element.css(".filmWrap a").attribute("href").value))
                 #retrieves director link from the movie page
@@ -33,18 +32,7 @@ class CriterionCollection::Scraper
                     name = element.css(".filmWrap a .basicFilm figcaption dt").text.strip
                     movie_url = element.css(".filmWrap a").attribute("href").value
                     CriterionCollection::Movie.new(name, director, movie_url)
-                end
             end
-                # name = element.css(".filmWrap a .basicFilm figcaption dt").text.strip
-                # url = element.css(".filmWrap a").attribute("href").value
-                # director = element.css(".filmWrap a .basicFilm figcaption dd").text.lines[1].strip
-                # CriterionCollection::Movie.new(name, director, url)
-# if CriterionCollection::Movie.all.detect{|object| object.name != name}
+        end
     end
-    
-
-    # list = page.css(".store-list-of-films")
-
-    # puts list
-
 end

@@ -1,5 +1,5 @@
 class CriterionCollection::Movie
-    attr_reader :name, :director, :description, :special_features, :year, :language, :url
+    attr_reader :name, :director, :url
     @@all = []
 
     def initialize(name, director, url)
