@@ -12,8 +12,11 @@ class CriterionCollection::Director
     end
 
     def self.all
-        CriterionCollection::Scraper.scrape_directors if @@all.empty?
         @@all
+    end
+
+    def self.get_library(site)
+        CriterionCollection::Scraper.scrape_directors(site)
     end
 
     def get_movies

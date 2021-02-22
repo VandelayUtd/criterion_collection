@@ -1,17 +1,15 @@
 # CriterionCollection
 
-Discover new world in the criterion collection
+Browse personal libraries on the Criterion Collection website
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/criterion_collection`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
-
+Welcome to the CriterionCollection gem! Run ./bin/criterion_collection to start the CLI and follow prompts. Note that the input is all case-sensitive. 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
 gem 'criterion_collection'
+
 ```
 
 And then execute:

@@ -9,6 +9,8 @@ require_relative "./criterion_collection/movie"
 require 'pry'
 require 'nokogiri'
 require 'open-uri'
+require 'colorize'
+require 'colorized_string'
 
 
 module CriterionCollection

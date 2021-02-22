@@ -1,26 +1,15 @@
-1. flow
-2. classes
-    2a. class relationships
+flow 
 
-- user is asked what type of movies they like and shown a list of examples
-- user sees those types of movies
-- user selects movie
-- user sees movie details
-- user can add movies to a must see list
-- user can make catagories for movies
-- user can make list of movies seen
-- user can 
+- user is greeted and asked which library they would like to browse through
+- user is presented with a list of directors from chosen library 
+- user selects a director from the list
+- user is presented a list of movies from chosen director
+- user selects movie from the list
+- user user is presented with movie details
+- user is prompted to return to main menu or exit
 
 CLASSES
     - CLI
     - Scraper
     - Movie
-        - special features
-        - Director
-        - Year
-        - Language
-        - Country?
-
-session 3 
-- get real directors
-- allow user to select 2nd director
+    - Director
