@@ -44,15 +44,7 @@ class CriterionCollection::CLI
         else
                 get_user_director
         end
-        # valid_input(chosen_director, @directors) ? display_director_movies(valid_input(chosen_director)) : 
-        # get_user_director
-
     end
-
-    # def valid_director(chosen_director)
-    #     #input.gsub("Alfonso Cuaron","Alfonso Cuarón") if input == "Alfonso Cuaron"
-    #     @directors.detect{|director| director.name == chosen_director}
-    # end
 
 
     def display_director_movies(valid_director)
@@ -77,10 +69,6 @@ class CriterionCollection::CLI
     def valid_input(input, data)
         data.detect {|obj| obj.name == input}
     end
-
-    # def valid_movie(chosen_movie)
-    #     @movie_choices.detect {|movie| movie.name == chosen_movie}
-    # end
 
     def display_movie_details(chosen_movie)
         @movie_choices.detect do |movie| 
