@@ -7,8 +7,8 @@ class CriterionCollection::Movie
         @name = name
         @url = url
         @director = director
-        @date = date
-        @description = description
+        # @date = date
+        # @description = description
         add_to_director
         save
     end

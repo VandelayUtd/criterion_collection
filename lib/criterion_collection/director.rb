@@ -1,6 +1,6 @@
 class CriterionCollection::Director
 
-    attr_accessor :name, :movie, :url, :movies 
+    attr_accessor :name, :url, :movies 
 
     @@all = [] 
 
@@ -20,8 +20,7 @@ class CriterionCollection::Director
     end
 
     def get_movies
-        CriterionCollection::Scraper.scrape_movies(self, self.url) if @movies.empty?
-        
+        CriterionCollection::Scraper.scrape_movies(self, self.url) if @movies.empty?      
     end
 
     def save

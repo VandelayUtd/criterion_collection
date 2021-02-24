@@ -18,22 +18,17 @@ class CriterionCollection::CLI
         @film_nerd = gets.strip
         if @film_nerd == "Drew"
             CriterionCollection::Director.get_library("https://www.criterion.com/collection/599498")
-            @directors = CriterionCollection::Director.all
         elsif @film_nerd == "Tom"
-            @directors = CriterionCollection::Director.get_library("https://www.criterion.com/collection/325808")
-            @directors = CriterionCollection::Director.all
+            CriterionCollection::Director.get_library("https://www.criterion.com/collection/325808")
         else
              get_directors
         end
+        @directors = CriterionCollection::Director.all
     end
 
-    def list_directors
-        
+    def list_directors     
         puts "\nHere's a list of Directors in #{@film_nerd}'s library".colorize(:blue)
-        list = []
-        @directors.each {|object| list << object.name}
-        unique_list = list.uniq
-        unique_list.each {|name| puts "#{name}"}
+        @directors.collect {|object| object.name}.uniq.each {|name| puts "#{name}"}
     end
 
     def get_user_director
@@ -59,8 +54,8 @@ class CriterionCollection::CLI
     def get_valid_movie
         puts "\nEnter a movie selection to view details:"
         chosen_movie = gets.strip
-        if valid_input(chosen_movie, @movie_choices)
-            display_movie_details(chosen_movie)
+        if movie = valid_input(chosen_movie, @movie_choices)
+            display_movie_details(movie)
         else
             get_valid_movie
         end
@@ -70,14 +65,14 @@ class CriterionCollection::CLI
         data.detect {|obj| obj.name == input}
     end
 
-    def display_movie_details(chosen_movie)
-        @movie_choices.detect do |movie| 
-            if movie.name.include?(chosen_movie)
+    def display_movie_details(movie)
+        #@movie_choices.detect do |movie| 
+         #   if movie.name.include?(chosen_movie)
                 movie.get_movie_details(movie.url, movie)
                 puts "\n#{movie.name} was released in #{movie.date} and directed by #{movie.director.name}".colorize(:yellow)
                 puts "\n    #{movie.description}\n".colorize(:color => :light_black, :background => :white)
-            end
-        end
+          #  end
+        #end
     end
 
 
