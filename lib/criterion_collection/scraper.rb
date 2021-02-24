@@ -7,14 +7,13 @@ class CriterionCollection::Scraper
             row.css(".store-row ul.group li").each do |element|
                 name = element.css(".filmWrap a .basicFilm figcaption dd").text.lines[1].strip
                 
-                ## Retrieves the director filmography link
-                #moves to movie page
+               ## scrapes through 2 pages to retrieve director url
+               ## more dynamic, but time consuming
                 #movie_page = Nokogiri::HTML(open(element.css(".filmWrap a").attribute("href").value))
                 #retrieves director link from the movie page
                 #partial_director_url = movie_page.css("p.header_lvl2 a").attribute("href").value
 
                 names = name.downcase.gsub(/[ó]/,'o').split
-                #binding.pry
                 last = names.pop
                 first = names.join(" ").delete(".")
                 name_ext = "/shop/browse?director=#{last} #{first}".gsub(" ", "-")

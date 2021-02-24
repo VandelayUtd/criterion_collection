@@ -23,7 +23,6 @@ class CriterionCollection::Movie
 
     def add_to_director
         @director.movies << self 
-        #unless @director.movies.include?(self)
     end
 
     def get_movie_details(url, movie)
